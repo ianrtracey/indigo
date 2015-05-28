@@ -38,3 +38,5 @@ group :development, :test do
   gem 'ffaker'
 end
 
+gem 'devise'
+
