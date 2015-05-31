@@ -40,4 +40,9 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
+gem 'compass-rails', github: 'Compass/compass-rails', branch: '2-0-stable'
+gem 'furatto'
+gem 'font-awesome-rails'
+gem 'simple_form'
 
