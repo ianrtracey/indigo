@@ -10,6 +10,8 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:auth_token) }
 
+	it { should have_many(:forms) }
+
 	it { should validate_presence_of(:email) }
 	it { should validate_uniqueness_of(:email) }
 	it { should validate_confirmation_of(:password) }
@@ -31,4 +33,20 @@ describe User do
     end
 
 	it { should be_valid }
+
+	describe "#forms association" do
+
+	  before do
+	    @user.save
+	    3.times { FactoryGirl.create :form, user: @user }
+	  end
+
+	  it "destroys the associated forms on self destruct" do
+	   forms = @user.forms
+	   @user.forms
+	   forms.each do |form|
+	     expect(Form.find(form)).to raise_error ActiveRecord::RecordNotFound
+	   end
+	 end
+  end
 end

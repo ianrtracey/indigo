@@ -9,9 +9,10 @@ describe Form do
   it { should respond_to(:submitted) }
   it { should respond_to(:user_id) }
 
-  it { should not_be_submitted }
+#  it { should not_be_submitted }
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :body }
   it { should validate_presence_of :user_id }
+  it { should belong_to :user }
 end
