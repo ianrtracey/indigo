@@ -88,8 +88,6 @@ describe Api::V1::FormsController do
 
      it { should respond_with 200 }
    end
+end
 
-   context "when is not updated" do
-     before(:each) do
-       patch :update, { user_id: @user.id, id: @form.id }
 end

@@ -19,6 +19,15 @@ class Api::V1::FormsController < ApplicationController
 	  end
 	end
 
+	def update
+	  form = current_user.form.find(params[:id])
+	  if form.update(form_params)
+	    render json: form, status: 200, location: [:api, form]
+	  else
+	  	render json: { errors: form.errors }, status: 422
+	  end
+	end
+
 	private
 
 	  def form_params
